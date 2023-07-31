@@ -58,6 +58,3 @@ def quantiles(numbers: list[float], quantile: float) -> float:
         return numbers[int(length * quantile)]
     else:
         return None
-    
-
-def stdev
