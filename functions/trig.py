@@ -70,15 +70,14 @@ def sec_radians(radians: float) -> float:
     except ZeroDivisionError:
         return None
 
-def tan_degrees(degrees: float) -> float:
+def cot_degrees(degrees: float) -> float:
     try:
-        return sin_degrees(degrees) / cos_degrees(degrees)
+        return 1 / tan_degrees(degrees)
     except ZeroDivisionError:
         return None
 
-def tan_radians(radians: float) -> float:
+def cot_radians(radians: float) -> float:
     try:
-        return cos_radians(radians) / sin_radians(radians)
+        return 1 / tan_radians(radians)
     except ZeroDivisionError:
         return None
-
