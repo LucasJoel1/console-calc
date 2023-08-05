@@ -20,13 +20,13 @@ Console calculator is a basic graphing calculator written in python3 that uses t
 - [x] min
 - [x] max
 - [x] quartile
-- [ ] stdev
-- [ ] stdevp
-- [ ] var
-- [ ] mad
-- [ ] cov
-- [ ] covp
-- [ ] corr
+- [x] stdev
+- [x] stdevp
+- [x] var
+- [x] mad
+- [x] cov
+- [x] covp
+- [x] corr
 - [ ] spearman
 - [ ] stats
 - [ ] count
