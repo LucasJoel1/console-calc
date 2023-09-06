@@ -125,3 +125,14 @@ def corr(numbers1: list[float], numbers2: list[float]) -> float:
     if len(numbers1) != len(numbers2):
         return None
     return cov(numbers1, numbers2) / (stdev(numbers1) * stdev(numbers2))
+
+def spearman(numbers1: [float], numbers2: [float]) -> float:
+    if len(numbers1) != len(numbers2):
+        return None
+    n = len(numbers1)
+    topSummation = 0
+    top = 0
+    for i in range(len(numbers1)):
+        topSummation += (numbers1[i] - numbers2[i]) ** 2
+    top = 6 * topSummation
+    return top / 2*(n**2 - 1)

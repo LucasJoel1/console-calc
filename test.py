@@ -1,8 +1,6 @@
 from functions.statistics import *
 
-numbers = [1, 15, 60]
-numbers2 = [2, 4, 9]
+numbers = [1, 1, 2]
+numbers2 = [1, 1, 1]
 result = spearman(numbers, numbers2)
 print(result)
-
-print(abs(0.0))
