@@ -27,7 +27,7 @@ Console calculator is a basic graphing calculator written in python3 that uses t
 - [x] cov
 - [x] covp
 - [x] corr
-- [*] spearman
+- [X] spearman
 - [ ] stats
 - [ ] count
 - [ ] total
