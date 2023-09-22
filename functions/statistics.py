@@ -129,10 +129,18 @@ def corr(numbers1: list[float], numbers2: list[float]) -> float:
 def spearman(numbers1: [float], numbers2: [float]) -> float:
     if len(numbers1) != len(numbers2):
         return None
-    n = len(numbers1)
-    topSummation = 0
-    top = 0
+    numbers1Ranked = []
+    numbers2Ranked = []
+    sortedNumbers1, sortedNumbers2 = sort(numbers1), sort(numbers2)
+
     for i in range(len(numbers1)):
-        topSummation += (numbers1[i] - numbers2[i]) ** 2
-    top = 6 * topSummation
-    return top / 2*(n**2 - 1)
+        for j in range(len(numbers1)):
+            if numbers1[i] == sortedNumbers1[j]:
+                numbers1Ranked.append(j)
+            if numbers2[i] == sortedNumbers2[j]:
+                numbers2Ranked.append(j)
+    topRight = 0
+    for i in range(len(numbers1)):
+        topRight += abs(((numbers1Ranked[i] - numbers2Ranked[i]))) ** 2
+    bottom = len(numbers1) * ((len(numbers1) ** 2) - 1)
+    return 1 - 6 * topRight / bottom
