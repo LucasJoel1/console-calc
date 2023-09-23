@@ -1,6 +1,6 @@
-<h1 align="center">Console Calc</h1>
+<h1 align="center">Python Function</h1>
 
-Console calculator is a basic graphing calculator written in python3 that uses the curses library for making the terminal based ui, however all the functions are written by myself as a way for me to learn how all these mathematical functions are actually calculated (external libraries except for curses are not used whatsoever).  My plan is to have every single function in the popular web based graphing calculator [demos](https://desmos.com/calculator).
+A python library written completely from scratch to have every desmos [demos](https://desmos.com/calculator) function and more.
 
 ## List of Functions
 
