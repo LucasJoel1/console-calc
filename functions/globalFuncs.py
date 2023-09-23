@@ -54,3 +54,12 @@ def quot(numbers: list[float]) -> float:
     for i in numbers:
         total /= i
     return total
+
+def sqrt(number: float) -> float:
+    return number ** 0.5
+
+def abs(number: float) -> float:
+    if number >= 0:
+        return number
+    else:
+        return -number
