@@ -1,6 +1,16 @@
-from functions.globalFuncs import *
+"""
+Provides statistical functions
+"""
+
+from globalFuncs import *
+
 
 def mean(numbers: list[float]) -> float:
+    """
+    Purpose:  Calculates the mean of an array
+    Input:   Array of floats
+    Output:   Float
+    """
     length = len(numbers)
     number = 0
     for i in numbers:
@@ -9,6 +19,11 @@ def mean(numbers: list[float]) -> float:
 
 
 def median(numbers: list[float]) -> float:
+    """
+    Purpose: Calculates the median of an array of floats
+    Input: Array of Floats
+    Output: Float
+    """
     length = len(numbers)
     numbers = sort(numbers)
     if length % 2 == 0:
@@ -18,6 +33,11 @@ def median(numbers: list[float]) -> float:
 
 
 def min(numbers: list[float]) -> float:
+    """
+    Purpose: Calculates the minimum value of an array of floats
+    Input: Array of Floats
+    Output: Float
+    """
     number = numbers[0]
     for i in numbers:
         if i > number:
@@ -26,6 +46,11 @@ def min(numbers: list[float]) -> float:
 
 
 def max(numbers: list[float]) -> float:
+    """
+    Purpose: Calculates the maximum value of an array of floats
+    Input: Array of Floats
+    Output: Float
+    """
     number = numbers[0]
     for i in number:
         if i < number:
@@ -34,6 +59,11 @@ def max(numbers: list[float]) -> float:
 
 
 def quartiles(numbers: list[float]) -> list[float, float, float]:
+    """
+    Purpose: Divides the data into 4 equal parts with each having a different range of values
+    Input: Array of Floats
+    Output: Array of 3 Floats
+    """
     numbers = sort(numbers)
     length = len(numbers)
     q1 = median(numbers[:length//4])
@@ -43,19 +73,29 @@ def quartiles(numbers: list[float]) -> list[float, float, float]:
 
 
 def quartile(numbers: list[float], quartile: int) -> float:
+    """
+    Purpose: Divides the data into 4 equal parts with each having a different range of values and only returning one specified
+    Input: Array of Floats, Int(0-2 specifying the quartile to return)
+    Output: 
+    """
     numbers = sort(numbers)
     length = len(numbers)
-    if quartile == 1:
+    if quartile == 0:
         return median(numbers[:length//4])
-    elif quartile == 2:
+    elif quartile == 1:
         return median(numbers[length//4:length//2+1])
-    elif quartile == 3:
+    elif quartile == 2:
         return median(numbers[(length+1)//4:])
     else:
         return None
 
-    
+
 def quantiles(numbers: list[float], quantile: float) -> float:
+    """
+    Purpose: Divides the data into 4 equal parts with each having a different range of values and only returning one specified
+    Input: Array of Floats, Int(0-1 specifying the quantile to return)
+    Output: Float
+    """
     numbers = sort(numbers)
     length = len(numbers)
     if quantile >= 0 and quantile <= 1:
@@ -64,6 +104,11 @@ def quantiles(numbers: list[float], quantile: float) -> float:
         return None
     
 def stdev(numbers: list[float]) -> float:
+    """
+    Purpose: Measures the amount of variation or dispersion of a set of values (Sample)
+    Input: Array of Floats
+    Output: Float
+    """
     length = len(numbers)
     numbersMean = mean(numbers)
     result = 0
@@ -74,6 +119,11 @@ def stdev(numbers: list[float]) -> float:
     return sqrt(result)
 
 def stdevp(numbers: list[float]) -> float:
+    """
+    Purpose: Measures the amount of variation or dispersion of a set of values (Population)
+    Input: Array of Floats
+    Output: Float
+    """
     length = len(numbers)
     numbersMean = mean(numbers)
     result = 0
@@ -84,6 +134,9 @@ def stdevp(numbers: list[float]) -> float:
     return sqrt(result)
 
 def var(numbers: list[float]) -> float:
+    """
+    Purpose: Measures the average degree to which each number is different from the mean
+    """
     length = len(numbers)
     numbersMean = mean(numbers)
     top = 0
@@ -92,6 +145,11 @@ def var(numbers: list[float]) -> float:
     return top / (length - 1)
 
 def mad(numbers: list[float]) -> float:
+    """
+    Purpose: Measures the distance between each data point and the mean and then takes the average of those distances
+    Input: Array of Floats
+    Output: Float
+    """
     length = len(numbers)
     numbersMean = mean(numbers)
     top = 0
@@ -99,7 +157,12 @@ def mad(numbers: list[float]) -> float:
         top += abs(i - numbersMean)
     return top / length
 
-def cov(numbers1: list[float], numbers2: list[float]):
+def cov(numbers1: list[float], numbers2: list[float]) -> float:
+    """
+    Purpose: Measures the direction of the relationship between two variables (Sample)
+    Input: Two Arrays of Floats
+    Output: Float
+    """
     if len(numbers1) != len(numbers2):
         return None
     numbers1Mean = mean(numbers1)
@@ -111,6 +174,11 @@ def cov(numbers1: list[float], numbers2: list[float]):
     return top / (length - 1)
 
 def covp(numbers1: list[float], numbers2: list[float]) -> float:
+    """
+    Purpose: Measures the direction of the relationship between two variables (Population)
+    Input: Two Arrays of Floats
+    Output: Float
+    """
     if len(numbers1) != len(numbers2):
         return None
     numbers1Mean = mean(numbers1)
@@ -122,11 +190,21 @@ def covp(numbers1: list[float], numbers2: list[float]) -> float:
     return top / (length)
 
 def corr(numbers1: list[float], numbers2: list[float]) -> float:
+    """
+    Purpose: Measures the strength of the linear relationship between two variables (Sample)
+    Input: Two Arrays of Floats
+    Output: Float
+    """
     if len(numbers1) != len(numbers2):
         return None
     return cov(numbers1, numbers2) / (stdev(numbers1) * stdev(numbers2))
 
 def spearman(numbers1: [float], numbers2: [float]) -> float:
+    """
+    Purpose: measures the strength and direction of association between two ranked variables
+    Input: Two Arrays of Floats
+    Output: Float
+    """
     if len(numbers1) != len(numbers2):
         return None
     numbers1Ranked = []
@@ -144,3 +222,11 @@ def spearman(numbers1: [float], numbers2: [float]) -> float:
         topRight += abs(((numbers1Ranked[i] - numbers2Ranked[i]))) ** 2
     bottom = len(numbers1) * ((len(numbers1) ** 2) - 1)
     return 1 - 6 * topRight / bottom
+
+def stats(numbers: [float]) -> [float]:
+    """
+    Purpose: Calculates the minimum, quartiles, median, and maximum of an array of floats
+    Input: Array of Floats
+    Output: Array of 4 Floats
+    """
+    return [min(numbers), quartiles(numbers[0]), median(numbers), quartile(numbers[2], max(numbers))]
