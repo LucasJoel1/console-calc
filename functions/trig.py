@@ -5,6 +5,11 @@ from functions.globalFuncs import *
 # then uses sin and cos to calculate tan, csc, sec, and cot using trig identities
 
 def sin_degrees(degrees: float) -> float:
+    """
+    Purpose: Calculates the sine of a number in degrees
+    Input: Float
+    Output: Float
+    """
     # convert degrees to radians
     radians = deg_to_rad(degrees)
     result = 0
@@ -18,6 +23,11 @@ def sin_degrees(degrees: float) -> float:
 
 # same as above but takes radians instead of degrees so no conversion is needed
 def sin_radians(radians: float) -> float:
+    """
+    Purpose: Calculates the sine of a number in radians
+    Input: Float
+    Output: Float
+    """
     result = 0
     sign = 1
     for i in range(1, 21, 2):
@@ -27,6 +37,11 @@ def sin_radians(radians: float) -> float:
 
 # same as above but cos is calculated with i being even instead of odd
 def cos_degrees(degrees: float) -> float:
+    """
+    Purpose: Calculates the cosine of a number in degrees
+    Input: Float
+    Output: Float
+    """
     radians = deg_to_rad(degrees)
     result = 0
     sign = 1
@@ -36,6 +51,11 @@ def cos_degrees(degrees: float) -> float:
     return result
 
 def cos_radians(radians: float) -> float:
+    """
+    Purpose: Calculates the cosine of a number in radians
+    Input: Float
+    Output: Float
+    """
     result = 0
     sign = 1
     for i in range(0, 20, 2):
@@ -49,6 +69,11 @@ def cos_radians(radians: float) -> float:
 # sec = 1 / cos
 # cot = 1 / tan
 def tan_degrees(degrees: float) -> float:
+    """
+    Purpose: Calculates the tangent of a number in degrees
+    Input: Float
+    Output: Float
+    """
     try :
         return sin_degrees(degrees) / cos_degrees(degrees)
     # check for division by zero as it throws an error
@@ -56,42 +81,77 @@ def tan_degrees(degrees: float) -> float:
         return None
 
 def tan_radians(radians: float) -> float:
+    """
+    Purpose: Calculates the tangent of a number in radians
+    Input: Float
+    Output: Float
+    """
     try:
         return sin_radians(radians) / cos_radians(radians)
     except ZeroDivisionError:
         return None
 
 def csc_degrees(degrees: float) -> float:
+    """
+    Purpose: Calculates the cosecant of a number in degrees
+    Input: Float
+    Output: Float
+    """
     try:
         return 1 / sin_degrees(degrees)
     except ZeroDivisionError:
         return None
 
 def csc_radians(radians: float) -> float:
+    """
+    Purpose: Calculates the cosecant of a number in radians
+    Input: Float
+    Output: Float
+    """
     try:
         return 1 / sin_radians(radians)
     except ZeroDivisionError:
         return None
 
 def sec_degrees(degrees: float) -> float:
+    """
+    Purpose: Calculates the secant of a number in degrees
+    Input: Float
+    Output: Float
+    """
     try:
         return 1 / cos_degrees(degrees)
     except ZeroDivisionError:
         return None
 
 def sec_radians(radians: float) -> float:
+    """
+    Purpose: Calculates the secant of a number in radians
+    Input: Float
+    Output: Float
+    """
     try:
         return 1 / cos_radians(radians)
     except ZeroDivisionError:
         return None
 
 def cot_degrees(degrees: float) -> float:
+    """
+    Purpose: Calculates the cotangent of a number in degrees
+    Input: Float
+    Output: Float
+    """
     try:
         return 1 / tan_degrees(degrees)
     except ZeroDivisionError:
         return None
 
 def cot_radians(radians: float) -> float:
+    """
+    Purpose: Calculates the cotangent of a number in radians
+    Input: Float
+    Output: Float
+    """
     try:
         return 1 / tan_radians(radians)
     except ZeroDivisionError:
