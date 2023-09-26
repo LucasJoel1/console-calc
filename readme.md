@@ -28,7 +28,7 @@ Python functions is a library with the goal of including every [demos](https://d
 - [x] covp
 - [x] corr
 - [x] spearman
-- [ ] stats
+- [x] stats
 - [ ] count
 - [ ] total
 
